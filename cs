@@ -38,7 +38,7 @@ http.createServer(function(req, res) {
   // A request to http://localhost/stream returns an unending sequence of jpegs
   // Listen for a disconnect from the client to properly unpipe the jpeg stream
   if (/stream/.test(req.url)) {
-    res.writeHead(200, {'Content-Type': 'multipart/x-mixed-replace; boundary=' + boundary});
+    res.writeHead(200, {'Content-Type': 'multipart/x-mixed-replace; boundary=' + boundary, 'Access-Control-Allow-Origin': '*'});
     var ws = new WriteStream({objectMode: true});
     ws._write = function(chunk, enc, next) {
       var jpeg = chunk.data;
