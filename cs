@@ -53,7 +53,7 @@ http.createServer(function(req, res) {
   } 
   // A request to http://localhost/frame returns a single frame as a jpeg
   else if (/frame/.test(req.url)) {
-    res.writeHead(200, {'Content-Type': 'image/jpeg'});
+    res.writeHead(200, {'Content-Type': 'image/jpeg', 'Access-Control-Allow-Origin': '*'});
     res.end(camera.frame);
   } 
   // A request to http://localhost returns a simple webpage that will render
